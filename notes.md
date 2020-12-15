@@ -15,3 +15,6 @@ fetch('/posts')
 ```
 
 We need to parse the body of the response as a javascript data structure before we work with it. We get a string in JSON (JavaScript Object Notation) format back from the API, we need to turn it into an object or an array before we work with it in our frontend js.
+
+
+The res.json() function sends a JSON response. This method sends a response (with the correct content-type) that is the parameter converted to a JSON string using the JSON.stringify() method.

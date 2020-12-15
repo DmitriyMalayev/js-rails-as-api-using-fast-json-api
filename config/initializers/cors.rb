@@ -11,7 +11,13 @@
 #
 #     resource '*',
 #       headers: :any,
-#       credentials: true,
+#       credentials: true,   
 #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
 #   end
 # end
+
+
+# Cross Origin Resource Sharing API
+# This helps us define a policy for what front end applications are able to connect to your back end api 
+# Works in conjunction with authenticate. If the api is open, we allow more origins '*' this means anyone can access it
+# 

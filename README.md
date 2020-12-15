@@ -7,35 +7,26 @@
 - Render related object attributes into JSON data
 
 ## Introduction
+We've seen that it is entirely possible to create our own service class serializers from scratch. 
+This issue is common enough, though, that there are some popular standardized serializer options available for us to use. 
 
-We've seen that it is entirely possible to create our own service class
-serializers from scratch. This issue is common enough, though, that there are
-some popular standardized serializer options available for us to use. In this
-lesson, we are going to look at one popular option, the [Fast JSON API][fast_jsonapi]
-gem and use it to create a close approximation to our JSON data from the
-previous lessons.
+In this lesson, we are going to look at one popular option, the [Fast JSON API][fast_jsonapi] gem and use it to create a close approximation to our JSON data from the previous lessons.
 
-The files in this lesson were populated using the API-only Rails build. Run
-`rails db:migrate` and `rails db:seed` to follow along.
+The files in this lesson were populated using the API-only Rails build. 
+Run `rails db:migrate` and `rails db:seed` to follow along.
 
 ## Introduce the Fast JSON API
+The Fast JSON API is a JSON serializer for Rails APIs. 
+It provides a way for us to generate _serializer_ classes for each resource object in our API that is
+involved in customized JSON rendering. 
+We can use these serializer classes to define the specific attributes we want objects to share or not share, along with things like related object attributes.
 
-The Fast JSON API is a JSON serializer for Rails APIs. It provides a way for us
-to generate _serializer_ classes for each resource object in our API that is
-involved in customized JSON rendering. We can use these serializer classes to
-define the specific attributes we want objects to share or not share, along with
-things like related object attributes.
-
-The result is that in our controller actions, rather than writing a custom
-`render` each time, we write out a serializer for each object once and use Fast
-JSON API to control the way our data is structured.
+The result is that in our controller actions, rather than writing a custom `render` each time, we write out a serializer for each object once and use Fast JSON API to control the way our data is structured.
 
 ## Initial Configuration
-
-Before we can see the solution Fast JSON API provides, let's look back at the
-problem we've been dealing with. We will start at the same place we started when creating our own
-service class serializer. This code-along has three resources set up: birds,
-locations and sightings:
+Before we can see the solution Fast JSON API provides, let's look back at the problem we've been dealing with. 
+We will start at the same place we started when creating our own service class serializer. 
+This code-along has three resources set up: birds, locations and sightings:
 
 ```rb
 class Bird < ApplicationRecord

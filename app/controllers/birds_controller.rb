@@ -1,6 +1,7 @@
 class BirdsController < ApplicationController
-  def index #
+  def index 
     birds = Bird.all 
-    render json: BirdSerializer.new(birds)
+    binding.pry 
+    render json: BirdSerializer.new(birds) 
   end
 end
